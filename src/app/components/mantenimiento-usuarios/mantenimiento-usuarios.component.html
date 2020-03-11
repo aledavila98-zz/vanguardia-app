@@ -1,0 +1,45 @@
+<app-slider-site
+    [sTituloParam] ="'Mantenimiento de usaurios.'"
+> </app-slider-site>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+      <app-camara
+      [showWebcam]="bExpandControl"
+      (CargarParametroDeSalida) = "ObtenerParametrosDeSalida($event)"
+      ></app-camara>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="desplegarPanel(drawer)" color="basic" >
+      <mat-icon>photo_camera</mat-icon>
+    </button>
+
+    <!--Limpiar flotados-->
+    <div class="clearfix"></div>
+    <div class="snapshot" *ngIf="!arResult[0] && bExpandControl==false" >
+      <img src="assets/images/default.jpg" alt="Imagen por defecto" *ngIf="!arResult[0]" style="height: 127px ; width: 170px;">
+      <br>
+      <img src="assets/images/default.jpg" alt="Imagen por defecto" *ngIf="!arResult[1]" style="height: 127px ; width: 170px;">
+      <br>
+      <img src="assets/images/default.jpg" alt="Imagen por defecto" *ngIf="!arResult[2]" style="height: 127px ; width: 170px;">
+    </div>
+    <div class="snapshot" *ngIf="arResult[0]!=null && bExpandControl==false" >
+      <img [src]="arResult[0].imageAsDataUrl"  style="height: 127px ; width: 185px;">
+      <br>
+      <img [src]="arResult[1].imageAsDataUrl"  style="height: 127px ; width: 185px;">
+      <br>
+      <img [src]="arResult[2].imageAsDataUrl"  style="height: 127px ; width: 185px;">
+    </div>
+    <div id="FormEmbedido">
+      <app-user-form></app-user-form>
+    </div>
+  </div>
+
+</mat-drawer-container>
+<!--Limpiar flotados-->
+<div class="clearfix"></div>
+<!--SECCION PARA EL COMPONENTE USER-GRID-->
+<br>
+<div class="UserGrid">
+  <app-user-grid></app-user-grid>
+</div>

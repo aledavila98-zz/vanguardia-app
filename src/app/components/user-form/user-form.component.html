@@ -1,0 +1,126 @@
+<form class="container" #userForm="ngForm" (ngSubmit)="onSubmit()" >
+  <div class="form-group">
+
+      <!--
+          APLICAR ENLACE BIDIRECCIONAL ENTRE NUESTRA CLASE Y EL MODELO DE FORMULARIOS DE ANGULAR
+          AGREGAR UNA EXPRESION REGULAR PARA SOLO ACEPTAR LETRAS
+          Lista de iconos para Material Design:
+          https://material.io/resources/icons/?icon=account_box&style=baseline
+          Nota: Se utilizó BootStrap para hacer 2 columnas de controles responsive
+      -->
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm col-md-4">
+              <mat-form-field appearance="fill" style="width : 100%;">
+                <mat-label>Usuario</mat-label>
+                <input matInput name="sUser" #sUser="ngModel" [(ngModel)]="user.sUser"
+                required pattern ="[a-zA-Z0-9]+">
+                <mat-icon matSuffix>account_box</mat-icon>
+                <!--APLICAR VALIDACIONES-->
+                <mat-hint>
+                  <small *ngIf="!sUser.valid && sUser.touched">
+                    El usuario no es valido.
+                  </small>
+                </mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" style="width : 100%;">
+                <mat-label>Nombre</mat-label>
+                <input matInput name="sUserName" #sUserName="ngModel" [(ngModel)]="user.sUserName"
+                required pattern ="[a-zA-Z]+">
+                <mat-icon matSuffix>contacts</mat-icon>
+                <!--APLICAR VALIDACIONES-->
+                <mat-hint>
+                  <small *ngIf="!sUserName.valid && sUserName.touched">
+                    El nombre no es valido.
+                  </small>
+                </mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" style="width : 100%;">
+                <mat-label>Clave</mat-label>
+                <input matInput matInput [type]="hide ? 'password' : 'text'" name="sPassword" #sPassword="ngModel" [(ngModel)]="user.sPassword"
+                required pattern ="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{9,}">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <!--APLICAR VALIDACIONES-->
+                <mat-hint>
+                  <small *ngIf="!sPassword.valid && sPassword.touched">
+                    Se requiere un minimo de 8 caracteres, al menos 1 mayuscula y al menos 1 caracter especial.
+                  </small>
+                </mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" style="width : 100%;">
+                <mat-label>Corroborar Clave</mat-label>
+                <input matInput matInput [type]="hide ? 'password' : 'text'" name="sComprobarPassword" #sComprobarPassword="ngModel" [(ngModel)]="user.sComprobarPassword"
+                required pattern ="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{9,}">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <!--APLICAR VALIDACIONES-->
+                <mat-hint>
+                  <small *ngIf="!sComprobarPassword.valid && sComprobarPassword.touched">
+                    Se requiere un minimo de 8 caracteres, al menos 1 mayuscula y al menos 1 caracter especial.
+                  </small>
+                </mat-hint>
+              </mat-form-field>
+
+            </div>
+            <div class="col-12 col-sm col-md-4">
+              <mat-form-field appearance="fill" style="width : 100%;">
+                <mat-label>Correo</mat-label>
+                <input matInput name="sCorreo" #sCorreo="ngModel" [(ngModel)]="user.sCorreo"
+                required pattern ="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <mat-icon matSuffix>contact_mail</mat-icon>
+                <!--APLICAR VALIDACIONES-->
+                <mat-hint>
+                  <small *ngIf="!sCorreo.valid && sCorreo.touched">
+                    El usuario no es valido.
+                  </small>
+                </mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" style="width : 100%;">
+                <mat-label>Teléfono</mat-label>
+                <span matPrefix>+504 &nbsp;</span>
+                <input  type="tel" matInput name="sTel" #sTel="ngModel" [(ngModel)]="user.sTel"
+                required pattern ="^((\+0?1\s)?)\d{4}[\s.-]\d{4}$" placeholder="9999-9999">
+                <mat-icon matSuffix>contact_phone</mat-icon>
+                <!--APLICAR VALIDACIONES-->
+                <mat-hint>
+                  <small *ngIf="!sTel.valid && sTel.touched">
+                    El Teléfono no es valido.
+                  </small>
+                </mat-hint>
+              </mat-form-field>
+
+              <mat-form-field style="width : 100%;">
+                <mat-label>Estado</mat-label>
+                <mat-select [(ngModel)]="user.nEstado" name="Estado">
+                  <mat-option *ngFor="let estado of Estado" [value]="estado.value">
+                    {{estado.viewValue}}
+                  </mat-option>
+                </mat-select>
+                <mat-icon matSuffix>list</mat-icon>
+              </mat-form-field>
+            </div>
+        </div>
+      </div>
+
+  </div>
+  <!--Corregir colocar objetos al lado-->
+  <div class="clearfix"></div>
+
+  <!--AGREGAR VALIDACION PARA QUE EL BOTON NO ESTE HABILITADO EN EL CASO QUE LOS DATOS DEL
+  FORMULARIO SEAN INVALIDOS-->
+  <input type="submit" value="Guardar" class="btn btn-success" [disabled]="userForm.invalid" [ngClass]="{
+      'btn btn-enabled':userForm.valid,
+      'btn btn-disabled':userForm.invalid
+  }"/>
+</form>
+<!--Corregir colocar objetos al lado-->
+<div class="clearfix"></div>
+
+

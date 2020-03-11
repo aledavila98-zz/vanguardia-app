@@ -24,9 +24,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.css",
+              "src/assets/css/styles.css",
+
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -63,7 +70,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "proyectoAngular:build"
+            "browserTarget": "proyectoAngular:build",
+            "port": 2174
           },
           "configurations": {
             "production": {
@@ -89,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -120,6 +129,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "proyectoAngular"
 }

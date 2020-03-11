@@ -1,0 +1,18 @@
+<app-slider-site
+    [sTituloParam] ="'Componente Prueba'"
+> </app-slider-site>
+
+<h1>{{titulo}}</h1>
+<p>{{comentario}}</p>
+<p>{{year}}</p>
+<p>Esta es una vista.</p>
+<hr>
+
+<button (click)="ocultarContenido()">Ocultar Contenido</button>
+<div *ngIf="bFlag">
+    <app-prueba2></app-prueba2>
+</div>
+
+<h2>El componente prueba2 llamado desde el componente prueba, se mostrará si bFlag = true</h2>
+
+<hr>

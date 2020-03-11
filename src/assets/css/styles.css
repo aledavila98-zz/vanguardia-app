@@ -1,0 +1,657 @@
+/*
+TIPOS DE SELECTORES EN CSS:
+    Etiqueta:
+        -Ejemplo: BODY
+    Selector de Id
+        -Ejemplo: #id
+    Selector para clases:
+        -Ejemplo: .clase
+*/
+
+body{
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    /*FUENTES*/
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+
+
+#header{
+
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid #ccc;
+    border-top: 5px solid #c70d0d;
+}
+
+.center{
+    width: 75%;
+    margin: 0px auto;
+}
+
+.clearfix{
+    /*EVITA QUE EL CONTENIDO SE MONTE Y HACE QUE PASE POR DEBAJO*/
+    clear: both;
+    float: none;
+}
+
+#logo{
+    width:30%;
+    font-size: 30px;
+    float: left;
+    margin-top: 35px;
+}
+
+#logo img{
+    display: block;
+    float: left;
+    height: 60px;
+    margin-top: -10px; /*Subir el logo*/
+    margin-right: -3px; /*Acercar la imagen al texto*/
+    animation: Palpitar infinite 1s linear; /*LA VELOCIDAD ES CONSTANTE NO VARIA*/
+}
+
+@keyframes girar{
+    from{
+        /*Que no se mueva*/
+        transform: rotate(0deg);
+    }
+    /*AL LLEGAR AL 100% DE LA ANIMACION AUMENTAR EL ANCHO A 200PX*/
+    to{
+        /*Hasta girar completamente*/
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes Palpitar{
+    /*AL LLEGAR AL 10% DE LA ANIMACION AUMENTAR EL ANCHO A 100PX*/
+    0%{
+        transform: scale(1,1)
+    }
+    50%{
+        transform: scale(1.02,1.02)
+    }
+    55%{
+        transform: scale(0.95,0.95)
+    }
+}
+
+#brand{
+    display: block;
+    margin: 0px;
+    float: left;
+}
+
+#menu{
+    width: 80%;
+    float: right;
+    font-size: 15px;
+}
+
+#menu ul{
+    line-height: 85px;
+    width: 60%;
+    float: right;
+    text-align: center !important;
+}
+
+#menu ul li{
+    /*PERMITE QUE TODOS LOS ELEMENTOS DE LA LISTA SE MUESTREN DE FORMA HORIZONTAL EN LUGAR DE LA FORMA VERTICAL TRADICIONAL*/
+    display:inline-block;
+    /*QUITAR LOS PUNTITOS PROPIOS DE LA ETIQUETA LISTA*/
+    list-style: none;
+    height: 46px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#menu a{
+    /*QUITAR LOS SUBRAYADOS PROPIOS DE LOS HIPERVINCULOS*/
+    text-decoration: none;
+    color: #444;
+    transition: 300ms all;
+}
+
+/*HABILITAR EFECTO HOVER*/
+#menu a:hover,
+.active{
+    text-decoration: none;
+    font-size: 16px;
+    font-style: initial;
+    color: #b64a0c !important; /*Importan indica que ningun otro estilo tienen prioridad a este*/
+}
+
+.year-green{
+    background: green;
+    color: white;
+    padding: 5px;
+    display: block;
+    width: 123px;
+    text-align: center;
+}
+
+.year-blue{
+    background: blue;
+    color: white;
+    padding: 5px;
+    display: block;
+    width: 123px;
+    text-align: center;
+}
+
+#mislider{
+  width: 100% !important;
+  height: 350px !important;
+  min-height: 350px !important;
+  background-image: url(/assets/images/AngularBanner5.png);
+  background-repeat: no-repeat;
+  background-size: cover !important; /* Resize the background image to cover the entire container */
+  float: left;
+  margin: auto;
+  border: 0px solid #ccc;
+  display: block;
+  color: whitesmoke;
+  padding:0px;
+  padding-top: 140px;
+  text-align: center;
+}
+
+#slider{
+    /*Aplicar color solidos*/
+    /*background: #61dafb;*/
+    width: 100%;
+    height: 250px;
+    /*line-height: 320px;*/
+    color: white; /*Color de la letra*/
+    text-shadow: 0px 0px 5px #444;
+    /*APLICAR DEGRADADO EN EL COLOR DE FONDO*/
+    /*https://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\%28left\%2C\%20rgba\%28248\%2C80\%2C50\%2C1\%29\%200\%25\%2C\%20rgba\%28241\%2C111\%2C92\%2C1\%29\%2050\%25\%2C\%20rgba\%28246\%2C41\%2C12\%2C1\%29\%2051\%25\%2C\%20rgba\%28240\%2C47\%2C23\%2C1\%29\%2071\%25\%2C\%20rgba\%28231\%2C56\%2C39\%2C1\%29\%20100\%25\%29\%3B'*/
+    background: rgba(140,36,23,1);
+    background: -moz-linear-gradient(top, rgba(140,36,23,1) 0%, rgba(189,41,24,1) 29%, rgba(199,46,26,1) 49%, rgba(219,89,72,1) 73%, rgba(248,80,50,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(140,36,23,1)), color-stop(29%, rgba(189,41,24,1)), color-stop(49%, rgba(199,46,26,1)), color-stop(73%, rgba(219,89,72,1)), color-stop(100%, rgba(248,80,50,1)));
+    background: -webkit-linear-gradient(top, rgba(140,36,23,1) 0%, rgba(189,41,24,1) 29%, rgba(199,46,26,1) 49%, rgba(219,89,72,1) 73%, rgba(248,80,50,1) 100%);
+    background: -o-linear-gradient(top, rgba(140,36,23,1) 0%, rgba(189,41,24,1) 29%, rgba(199,46,26,1) 49%, rgba(219,89,72,1) 73%, rgba(248,80,50,1) 100%);
+    background: -ms-linear-gradient(top, rgba(140,36,23,1) 0%, rgba(189,41,24,1) 29%, rgba(199,46,26,1) 49%, rgba(219,89,72,1) 73%, rgba(248,80,50,1) 100%);
+    background: linear-gradient(to bottom, rgba(140,36,23,1) 0%, rgba(189,41,24,1) 29%, rgba(199,46,26,1) 49%, rgba(219,89,72,1) 73%, rgba(248,80,50,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c2417', endColorstr='#f85032', GradientType=0 );
+
+    margin-top: 0.2px;
+    padding:0px;
+
+    text-align: center;
+}
+
+#slider h1{
+    margin-top: 0.2px;
+    padding:0px;
+    padding-top: 70px;
+    text-align: center !important;
+}
+
+#slider.slider-small{
+    height: 150px;
+}
+
+#slider.slider-small h1{
+    margin-top: 0.2px;
+    padding:0px;
+    padding-top: 50px;
+    text-align: center !important;
+}
+
+.btn-white{
+    display: block;
+    background: white; /**Color de fondo/
+    color: rgba(88,88,88); /*Color de fuente*/
+    padding: 10px;
+    width: 100px;
+    height: 50px;
+    margin: 0px auto; /*Centrar el boton en la pantalla*/
+    font-size: 18px;
+    text-transform: uppercase; /*CONVERTIR TODO EL TEXTO A MAYUSCULA*/
+    text-shadow:none;
+    text-decoration: none;
+    line-height: 35px;
+    box-shadow: 0px 0px 5px rgba(88,88,88);
+    margin-top: 30px;
+    border-radius: 4px;
+    transition: 300ms all;
+}
+
+.btn-white:hover{
+    background: #444;
+    color:white;
+}
+
+#content{
+    width: 100%;
+    float:left;
+    /*border:1px solid red;*/
+    min-height: 650px;
+    margin-right: 20px;
+}
+
+#sidebar{
+    width:25%;
+    float:left;
+    /*border: 1px solid green;*/
+}
+
+.sidebar-item{
+    background: #f7f7f7;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.sidebar-item h3{
+    text-transform: uppercase;
+    font-size: 17px;
+    margin: 0px;
+    padding-bottom: 10px;
+    margin-bottom:10px;
+    border-bottom: 3px solid #eee;
+}
+
+.sidebar-item .btn{
+    margin-top: 10px;
+    margin:0px auto;
+}
+
+.btn{
+    display: block;
+    background: black;
+    color: white;
+    padding:15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    max-width: 125px;
+    transition: 300ms all;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-success{
+    background: rgb(167, 53, 8) !important;
+}
+
+.btn-success:hover{
+    background: rgb(199, 80, 50) !important;
+}
+
+.btn-disabled{
+    background: rgb(177, 167, 163) !important;
+}
+
+.btn-disabled:hover{
+    background: rgb(177, 167, 163) !important;
+}
+
+.btn-enabled{
+    display: block;
+    color: white;
+    padding:15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    max-width: 125px;
+    transition: 300ms all;
+    border: none;
+    cursor: pointer;
+    background: rgb(167, 53, 8);
+}
+
+.btn-enabled:hover{
+    display: block;
+    color: white;
+    padding:15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    max-width: 125px;
+    transition: 300ms all;
+    border: none;
+    cursor: pointer;
+    background: rgb(199, 80, 50);
+}
+
+.btn-warning{
+    background: rgb(248, 240, 169);
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-warning:hover{
+    background: rgb(255, 226, 65);
+    transition: all 300ms;
+    opacity: 0.8;
+}
+
+.btn-danger{
+    color: white !important;
+    background: rgb(167, 53, 8);
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-danger:hover{
+    background: rgb(199, 80, 50);
+    transition: all 300ms;
+    opacity: 0.8;
+}
+
+.buttons{
+    margin-top: 30px;
+}
+
+.mid-form{
+    width:50%;
+    margin: 0px auto;
+}
+
+.mid-form label{
+    display: block;
+    float: left;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="file"],
+textarea{
+    width: 100%;
+    min-height: 30px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    margin-bottom: 5px;
+    transition: 300ms all;
+}
+
+.btn.up_btn.afu-attach-pin{
+    display: block !important;
+    width: 100% !important;
+    max-width: 90% !important;
+    margin-top: 15px !important;
+}
+
+/*Efecto Hover pero cuando el control tiene el foco*/
+input[type="text"]:focus,
+textarea{
+    box-shadow: 0px 0px 2px #444 inset;
+}
+
+textarea{
+    width: 100%;
+    height: 150px;
+    min-height: 150px;
+    max-width: 100%;
+    max-height: 300px;
+    min-width: 100%;
+}
+
+.radiobuttons{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+#footer{
+    background: #f7f7f7;
+    width: 100%;
+    height: 90px;
+    line-height: 40px;
+    color:#444;
+    text-align: center;
+}
+
+#footer p{
+    margin: 0px;
+    padding: 0px;
+}
+
+#footer imageLink{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.article-item{
+    width: 100%;
+    border-bottom: 1px solid#eee;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: left;
+}
+
+.article-item .image-wrap{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    float: left;
+    margin-right: 15px;
+    border: 0px solid #ccc;
+}
+
+.ImgDetalle .image-wrap_D img
+{
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    float: left;
+    margin: auto;
+    border: 0px solid #ccc;
+}
+
+.mid-form .Thumbnail img
+{
+    width: 200px !important;
+    max-width: 200px !important;
+    height: 200px !important;
+    max-height: 200px !important;
+    overflow: hidden;
+    float: left;
+    margin-right: 15px;
+    border: 0px solid #ccc;
+}
+
+.article-item .image-wrap img{
+    height: 100%;
+    text-align: center;
+}
+
+.article-item h2{
+    display: block;
+    width: 100%;
+    padding:0px;
+    margin: 0px;
+    margin-bottom: 7px;
+}
+
+.article-item .date{
+    display: block;
+    width: 100%;
+    color: rgb(122, 122, 122);
+}
+
+.article-item .date-green{
+    display: block;
+    width: 100%;
+    color: green;
+    font-weight: bold;
+}
+
+.article-item .date-blue{
+    display: block;
+    width: 100%;
+    color: blue;
+    font-weight: bold;
+}
+
+.article-item a{
+    display: block;
+    color:#444;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.article-item a:hover{
+    text-decoration: underline;
+}
+
+.subheader{
+    font-size: 32px;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+}
+
+.article-detail .image-wrap{
+    float:none;
+    width:100%;
+    height: 300px;
+}
+
+.article-detail .image-wrap img{
+    width: 100%;
+    height: auto;
+}
+
+.article-detail .subheader{
+    margin-bottom: 5px;
+    border:none;
+}
+
+/*=====================================================================*/
+                        /*RESPONSIVE Por MediaQuery*/
+/*=====================================================================*/
+/*DESDE LA ANCHURA 0PX HASTA 1117px SE APLICARAN LOS SIGUIENTES ESTILOS*/
+@media(max-width:1840px){
+
+    .center{
+        width: 85%;
+    }
+    #menu{
+        width: auto;
+    }
+    #menu ul{
+        width: auto;
+    }
+}
+
+@media(max-width:1340px){
+
+    .center{
+        width: 85%;
+    }
+    #menu{
+        width: auto;
+    }
+    #menu ul{
+        width: auto;
+    }
+}
+
+/*DESDE LA ANCHURA 0PX HASTA 963px SE APLICARAN LOS SIGUIENTES ESTILOS*/
+@media(max-width:1185px){
+    .center{
+        width: 95%;
+    }
+
+    #menu ul{
+        width: auto;
+    }
+}
+
+@media(max-width:970px){
+    #logo{
+        width: 265px;
+    }
+
+}
+
+@media(max-width:854px){
+    #logo{
+        float:none;
+        margin:0px auto;
+        margin-top: 20px;
+    }
+
+    #menu,
+    #menu ul{
+        clear: both;
+        float: none;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        line-height: 43px;
+    }
+
+    #content{
+        float:none;
+        width: 100%;
+    }
+
+    #sidebar{
+        float:none;
+        width: 60%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+    }
+
+    #slider h1{
+        padding-top: 50px !important;
+        font-size: 25px;
+    }
+
+    .mid-form{
+        width: 70%;
+    }
+}
+
+@media(max-width:590){
+    #header{
+
+        overflow: hidden;
+    }
+
+    #menu,
+    #menu ul{
+        line-height: 50px;
+    }
+
+    #menu ul li{
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+
+    #slider{
+        height: 180px;
+    }
+
+    #slider h1{
+        font-size: 19px;
+        padding-top: 10px;
+    }
+
+    #slider .btn-white{
+        margin-top: 20px;
+    }
+
+    #slider .slider-small{
+        height: 100px;
+    }
+
+    #slider .slider-small h1{
+        padding-top: 35px;
+    }
+
+}

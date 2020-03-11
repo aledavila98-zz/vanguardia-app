@@ -1,0 +1,27 @@
+<div style="text-align:center">
+  <div>
+    <webcam [height]="320" [width]="320" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+     [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
+     (initError)="handleInitError($event)"></webcam>
+    <br/>
+    <button mat-mini-fab aria-label="Capturar Imagen" color="primary" (click)="triggerSnapshot();">
+      <mat-icon>camera_alt</mat-icon>
+    </button>
+    <button mat-mini-fab aria-label="Cambiar Camara" color="primary" (click)="showNextWebcam(true);">
+      <mat-icon>flip_camera_ios</mat-icon>
+    </button>
+    <!--Colocar Vista Previa 3 imagenes-->
+    <div class="VistaPrevia" >
+      <img [src]="arResult[0].imageAsDataUrl" style="height: 60px ; width: 85px;"  *ngIf="arResult[0]!=null" />
+      <img [src]="arResult[1].imageAsDataUrl" style="height: 60px ; width: 85px;"  *ngIf="arResult[1]!=null" />
+      <img [src]="arResult[2].imageAsDataUrl" style="height: 60px ; width: 85px;"  *ngIf="arResult[2]!=null" />
+    </div>
+  </div>
+</div>
+
+<h4 *ngIf="errors.length > 0">Messages:</h4>
+<ul *ngFor="let error of errors">
+  <li>{{error | json}}</li>
+</ul>
+
+
