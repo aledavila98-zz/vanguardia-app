@@ -54,6 +54,7 @@ import {StorageServiceModule} from 'angular-webstorage-service';
 
 //MANEJO DE NOTIFICACIONES EN PANTALLA
 import Swal from 'sweetalert2';
+import { Globals } from './globals';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import Swal from 'sweetalert2';
     appRoutingProviders,
     //Angular Materials
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    Globals
   ],
   bootstrap: [AppComponent]
 })

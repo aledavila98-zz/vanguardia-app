@@ -17,7 +17,7 @@ import {LoginComponent} from './components/login/login.component';
 //Path con ** debe ir al final y este se carga cada vez que no se encuentra una ruta
 //La ruta a la pagina2 esta 2 veces ya que ocupamos que se pueda acceder con o sin el parametro que recibe desde la url
 const appRouter:  Routes = [
-  {path:'', component:HomeSiteComponent},
+  {path:'', component:LoginComponent},
   {path:'home', component:HomeSiteComponent},
   {path:'formulario', component:MantenimientoUsuariosComponent},
   {path:'pagina1', component:PruebaComponent},

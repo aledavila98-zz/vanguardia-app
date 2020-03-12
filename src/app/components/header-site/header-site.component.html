@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header" *ngIf="globals.logged">
   <div class="center">
           <!--LOGO-->
           <div id="logo">
@@ -37,7 +37,7 @@
                               <!--<a href="#">Pagina 2</a>-->
                            </li>
                            <li>
-                               <a [routerLink]="['/pagina3']" [routerLinkActive]="['active']" >Pagina 3</a>
+                               <a (click)="logout()" [routerLinkActive]="['active']" >Log out</a>
                                 <!--<a href="#">Pagina 3</a>-->
                            </li>
                    </ul>
