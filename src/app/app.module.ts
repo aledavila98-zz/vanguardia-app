@@ -6,6 +6,8 @@ import { PruebaComponent } from './components/prueba/prueba.component';
 import { Prueba2Component } from './components/prueba2/prueba2.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Prueba3Component } from './components/prueba3/prueba3.component';
+import { LoginComponent } from './components/login/login.component';
+
 //Sin TemplateURL
 import { SinTemplate } from './components/compsintemplate/sintemplate.component';
 
@@ -79,7 +81,8 @@ import Swal from 'sweetalert2';
     CamaraComponent,
     MantenimientoUsuariosComponent,
     UserGridComponent,
-    TipoEstadoPipe
+    TipoEstadoPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

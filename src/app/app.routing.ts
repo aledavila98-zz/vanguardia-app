@@ -9,6 +9,7 @@ import {PruebaComponent} from './components/prueba/prueba.component';
 import {Prueba2Component} from './components/prueba2/prueba2.component';
 import {Prueba3Component} from './components/prueba3/prueba3.component';
 import {ErrorSiteComponent} from './components/error-site/error-site.component';
+import {LoginComponent} from './components/login/login.component';
 
 
 //DEFINIR ARREGLO DE RUTAS
@@ -23,7 +24,8 @@ const appRouter:  Routes = [
   {path:'pagina2', component:Prueba2Component},
   {path:'pagina2/:param0/:param1', component:Prueba2Component},
   {path:'pagina3', component:Prueba3Component},
-  {path:'**', component:ErrorSiteComponent}
+  {path:'**', component:ErrorSiteComponent},
+  {path:'login', component:LoginComponent}
 ];
 
 //Exportar el modulo de rutas
