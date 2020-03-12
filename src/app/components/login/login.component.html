@@ -1,28 +1,36 @@
-<mat-card class="box">
-    <mat-card-header>
-        <mat-card-title>Log in</mat-card-title>
-    </mat-card-header>
+<form class="container">
+    <div class="form-group">
+        <mat-card-header>
+            <mat-card-title>Log in</mat-card-title>
+        </mat-card-header>
 
-    <form class="example-form">
-        <mat-card-content>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Username">
-            </mat-form-field>
+        <form class="example-form">
+            <mat-card-content>
+                <div class="row">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Username">
+                    </mat-form-field>
+                </div>
+                
+                <div class="row">
+                    <mat-form-field class="example-full-width">
+                        <input matInput matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
+                    </mat-form-field>
+                </div>
 
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Password">
-            </mat-form-field>
-
-            <mat-drawer #drawer class="example-sidenav" mode="side">
-                <app-camara [showWebcam]="bExpandControl" (CargarParametroDeSalida) = "ObtenerParametrosDeSalida($event)"></app-camara>
-            </mat-drawer>
+                <mat-drawer #drawer class="example-sidenav" mode="side">
+                    <app-camara [showWebcam]="bExpandControl" (CargarParametroDeSalida) = "ObtenerParametrosDeSalida($event)"></app-camara>
+                </mat-drawer>
+                
+                <button type="button" mat-button (click)="desplegarPanel(drawer)" color="basic" >
+                    <mat-icon>photo_camera</mat-icon>
+                </button>
+                <div class = "row">
+                    <button (click)="onSubmit()" mat-stroked-button color="accent" class="btn-block">Log in</button>
+                </div>
+            </mat-card-content>
             
-            <button type="button" mat-button (click)="desplegarPanel(drawer)" color="basic" >
-                <mat-icon>photo_camera</mat-icon>
-            </button>
-
-        </mat-card-content>
-        
-        <button (click)="onSubmit()" mat-stroked-button color="accent" class="btn-block">Log in</button>
-    </form>
-</mat-card>
+            
+        </form>
+    </div>
+</form>
