@@ -6,6 +6,8 @@ import { PruebaComponent } from './components/prueba/prueba.component';
 import { Prueba2Component } from './components/prueba2/prueba2.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Prueba3Component } from './components/prueba3/prueba3.component';
+import { LoginComponent } from './components/login/login.component';
+
 //Sin TemplateURL
 import { SinTemplate } from './components/compsintemplate/sintemplate.component';
 
@@ -52,6 +54,7 @@ import {StorageServiceModule} from 'angular-webstorage-service';
 
 //MANEJO DE NOTIFICACIONES EN PANTALLA
 import Swal from 'sweetalert2';
+import { Globals } from './globals';
 
 @NgModule({
   declarations: [
@@ -79,7 +82,8 @@ import Swal from 'sweetalert2';
     CamaraComponent,
     MantenimientoUsuariosComponent,
     UserGridComponent,
-    TipoEstadoPipe
+    TipoEstadoPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +109,7 @@ import Swal from 'sweetalert2';
     appRoutingProviders,
     //Angular Materials
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    Globals
   ],
   bootstrap: [AppComponent]
 })
