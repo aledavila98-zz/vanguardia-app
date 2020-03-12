@@ -11,6 +11,7 @@ import { Globals } from '../../globals';
 export class LoginComponent implements OnInit {
 
    //#region VARIABLES LOCALES
+   public hide = true;
    public bExpandControl:boolean=false;
    private webImage0:WebcamImage=null;
    @Output() public arResult:WebcamImage[];
